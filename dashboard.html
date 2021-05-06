@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Admin Panel</h1>
+              <hr>
+             <a href="/edit/0"> <button class="btn btn-primary"> Add a new post</a> </button>
+            <a href="/logout">  <button class="btn btn-primary"> Logout </a></button>
+              <span class="subheading"></span>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+   <table class="table">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Title</th>
+        <th>Slug</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+ <tbody>
+
+
+    {% for p1 in n1%}
+      <tr>
+        <td>{{p1.sno}}</td>
+        <td>{{p1.title}}</td>
+        <td>{{p1.slug}}</td>
+        <td> <a href="/edit/{{p1.sno}}">  <button type="submit" class="btn btn-primary"> Edit  </button> </a> </td>
+        <td> <a href="/delete">  <button type="submit" class="btn btn-primary"> Delete </button> </a> </td>
+      </tr>
+
+
+      {% endfor %}
+    </tbody>
+  </table>
+  
+          <!-- Pager -->
+    {% endblock %}
