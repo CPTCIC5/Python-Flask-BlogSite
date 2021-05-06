@@ -39,8 +39,8 @@ class Posts(db.Model):
 
 @app.route('/')
 def home():
-    return render_template('index.html',params=params)
-
+    users=Posts.query.all()
+    return render_template('index.html',params=params,users=users)
 
 @app.route('/about')
 def about():
